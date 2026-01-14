@@ -1,0 +1,44 @@
+C:\Users\DT User\source\repos\AiAgents.Core\AiAgents.Core\bin\Debug\net8.0\AiAgents.Core.deps.json
+C:\Users\DT User\source\repos\AiAgents.Core\AiAgents.Core\bin\Debug\net8.0\AiAgents.Core.dll
+C:\Users\DT User\source\repos\AiAgents.Core\AiAgents.Core\bin\Debug\net8.0\AiAgents.Core.pdb
+C:\Users\DT User\source\repos\AiAgents.Core\AiAgents.Core\obj\Debug\net8.0\AiAgents.Core.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\DT User\source\repos\AiAgents.Core\AiAgents.Core\obj\Debug\net8.0\AiAgents.Core.AssemblyInfoInputs.cache
+C:\Users\DT User\source\repos\AiAgents.Core\AiAgents.Core\obj\Debug\net8.0\AiAgents.Core.AssemblyInfo.cs
+C:\Users\DT User\source\repos\AiAgents.Core\AiAgents.Core\obj\Debug\net8.0\AiAgents.Core.csproj.CoreCompileInputs.cache
+C:\Users\DT User\source\repos\AiAgents.Core\AiAgents.Core\obj\Debug\net8.0\AiAgents.Core.dll
+C:\Users\DT User\source\repos\AiAgents.Core\AiAgents.Core\obj\Debug\net8.0\refint\AiAgents.Core.dll
+C:\Users\DT User\source\repos\AiAgents.Core\AiAgents.Core\obj\Debug\net8.0\AiAgents.Core.pdb
+C:\Users\DT User\source\repos\AiAgents.Core\AiAgents.Core\obj\Debug\net8.0\ref\AiAgents.Core.dll
+C:\Users\DT User\Desktop\AiAgents.Core\AiAgents.Core\bin\Debug\net8.0\AiAgents.Core.deps.json
+C:\Users\DT User\Desktop\AiAgents.Core\AiAgents.Core\bin\Debug\net8.0\AiAgents.Core.dll
+C:\Users\DT User\Desktop\AiAgents.Core\AiAgents.Core\bin\Debug\net8.0\AiAgents.Core.pdb
+C:\Users\DT User\Desktop\AiAgents.Core\AiAgents.Core\obj\Debug\net8.0\AiAgents.Core.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\DT User\Desktop\AiAgents.Core\AiAgents.Core\obj\Debug\net8.0\AiAgents.Core.AssemblyInfoInputs.cache
+C:\Users\DT User\Desktop\AiAgents.Core\AiAgents.Core\obj\Debug\net8.0\AiAgents.Core.AssemblyInfo.cs
+C:\Users\DT User\Desktop\AiAgents.Core\AiAgents.Core\obj\Debug\net8.0\AiAgents.Core.csproj.CoreCompileInputs.cache
+C:\Users\DT User\Desktop\AiAgents.Core\AiAgents.Core\obj\Debug\net8.0\AiAgents.Core.dll
+C:\Users\DT User\Desktop\AiAgents.Core\AiAgents.Core\obj\Debug\net8.0\refint\AiAgents.Core.dll
+C:\Users\DT User\Desktop\AiAgents.Core\AiAgents.Core\obj\Debug\net8.0\AiAgents.Core.pdb
+C:\Users\DT User\Desktop\AiAgents.Core\AiAgents.Core\obj\Debug\net8.0\ref\AiAgents.Core.dll
+C:\Users\DT User\Desktop\AI_Agent\AiAgents.Core\bin\Debug\net8.0\AiAgents.Core.deps.json
+C:\Users\DT User\Desktop\AI_Agent\AiAgents.Core\bin\Debug\net8.0\AiAgents.Core.dll
+C:\Users\DT User\Desktop\AI_Agent\AiAgents.Core\bin\Debug\net8.0\AiAgents.Core.pdb
+C:\Users\DT User\Desktop\AI_Agent\AiAgents.Core\obj\Debug\net8.0\AiAgents.Core.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\DT User\Desktop\AI_Agent\AiAgents.Core\obj\Debug\net8.0\AiAgents.Core.AssemblyInfoInputs.cache
+C:\Users\DT User\Desktop\AI_Agent\AiAgents.Core\obj\Debug\net8.0\AiAgents.Core.AssemblyInfo.cs
+C:\Users\DT User\Desktop\AI_Agent\AiAgents.Core\obj\Debug\net8.0\AiAgents.Core.csproj.CoreCompileInputs.cache
+C:\Users\DT User\Desktop\AI_Agent\AiAgents.Core\obj\Debug\net8.0\AiAgents.Core.dll
+C:\Users\DT User\Desktop\AI_Agent\AiAgents.Core\obj\Debug\net8.0\refint\AiAgents.Core.dll
+C:\Users\DT User\Desktop\AI_Agent\AiAgents.Core\obj\Debug\net8.0\AiAgents.Core.pdb
+C:\Users\DT User\Desktop\AI_Agent\AiAgents.Core\obj\Debug\net8.0\ref\AiAgents.Core.dll
+C:\Users\DT User\Desktop\Fashion AI Agent\AiAgents.Core\bin\Debug\net8.0\AiAgents.Core.deps.json
+C:\Users\DT User\Desktop\Fashion AI Agent\AiAgents.Core\bin\Debug\net8.0\AiAgents.Core.dll
+C:\Users\DT User\Desktop\Fashion AI Agent\AiAgents.Core\bin\Debug\net8.0\AiAgents.Core.pdb
+C:\Users\DT User\Desktop\Fashion AI Agent\AiAgents.Core\obj\Debug\net8.0\AiAgents.Core.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\DT User\Desktop\Fashion AI Agent\AiAgents.Core\obj\Debug\net8.0\AiAgents.Core.AssemblyInfoInputs.cache
+C:\Users\DT User\Desktop\Fashion AI Agent\AiAgents.Core\obj\Debug\net8.0\AiAgents.Core.AssemblyInfo.cs
+C:\Users\DT User\Desktop\Fashion AI Agent\AiAgents.Core\obj\Debug\net8.0\AiAgents.Core.csproj.CoreCompileInputs.cache
+C:\Users\DT User\Desktop\Fashion AI Agent\AiAgents.Core\obj\Debug\net8.0\AiAgents.Core.dll
+C:\Users\DT User\Desktop\Fashion AI Agent\AiAgents.Core\obj\Debug\net8.0\refint\AiAgents.Core.dll
+C:\Users\DT User\Desktop\Fashion AI Agent\AiAgents.Core\obj\Debug\net8.0\AiAgents.Core.pdb
+C:\Users\DT User\Desktop\Fashion AI Agent\AiAgents.Core\obj\Debug\net8.0\ref\AiAgents.Core.dll

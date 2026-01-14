@@ -1,0 +1,122 @@
+﻿@model List<AiAgents.FashionAgent.Domain.Entities.ClothingItem>
+
+@if (Model == null || Model.Count == 0)
+{
+    <div class="alert alert-warning text-center">
+        <h4>😕 No Results Found</h4>
+        <p>We couldn't find items matching your criteria.  Try with fewer filters! </p>
+    </div>
+}
+else
+{
+    <div class="card shadow-sm mt-4">
+        <div class="card-header text-white bg-primary">
+            <h5 class="mb-0">✨ Found @Model.Count recommendations for you! </h5>
+        </div>
+        <div class="card-body p-0">
+            <div class="table-responsive">
+                <table class="table table-hover mb-0">
+                    <thead class="table-dark">
+                        <tr>
+                            <th>Brand</th>
+                            <th>Category</th>
+                            <th>Color</th>
+                            <th>Material</th>
+                            <th>Style</th>
+                            <th>Gender</th>
+                            <th>Price</th>
+                            <th>⭐ Rating</th>
+                            <th>Trend</th>
+                            <th>Feedback</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+                            <tr id="row-@item.Id">
+                                <td><strong>@item.Brand</strong></td>
+                                <td>@item.Category</td>
+                                <td><span class="badge bg-secondary">@item.Color</span></td>
+                                <td>@item.Material</td>
+                                <td>@item.Style</td>
+                                <td>@item.Gender</td>
+                                <td><strong>$@item.Price.ToString("F2")</strong></td>
+                                <td><span class="text-warning">★</span> @item.CustomerRating.ToString("F1")</td>
+                                <td>
+                                    @if (item.TrendStatus == "Trending")
+                                    {
+                                        <span class="badge bg-success">🔥 Trending</span>
+                                    }
+                                    else if (item.TrendStatus == "Emerging")
+                                    {
+                                        <span class="badge bg-warning text-dark">📈 Emerging</span>
+                                    }
+                                    else if (item.TrendStatus == "Classic")
+                                    {
+                                        <span class="badge bg-primary">👔 Classic</span>
+                                    }
+                                    else
+                                    {
+                                        <span class="badge bg-secondary">@item.TrendStatus</span>
+                                    }
+                                </td>
+                                <td class="feedback-cell" data-item-id="@item.Id">
+                                    <button class="btn btn-success btn-sm like-btn" title="I like this! ">👍</button>
+                                    <button class="btn btn-danger btn-sm dislike-btn" title="I don't like this">👎</button>
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <!-- Dislike Reason Modal -->
+    <div class="modal fade" id="dislikeModal" tabindex="-1">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header bg-danger text-white">
+                    <h5 class="modal-title">👎 Why don't you like this item?</h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <p class="text-muted">Help us improve!  Select a reason: </p>
+                    <div class="d-grid gap-2">
+                        <button class="btn btn-outline-secondary reason-btn" data-reason="color">🎨 Don't like the COLOR</button>
+                        <button class="btn btn-outline-secondary reason-btn" data-reason="price">💰 Too EXPENSIVE</button>
+                        <button class="btn btn-outline-secondary reason-btn" data-reason="material">🧶 Don't like the MATERIAL</button>
+                        <button class="btn btn-outline-secondary reason-btn" data-reason="style">✨ Don't like the STYLE</button>
+                        <button class="btn btn-outline-secondary reason-btn" data-reason="brand">🏷️ Don't like the BRAND</button>
+                        <button class="btn btn-outline-secondary reason-btn" data-reason="trending">🔥 Don't like the TREND STATUS</button>
+                        <button class="btn btn-outline-secondary reason-btn" data-reason="other">❓ Other reason</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+<!-- Like Reason Modal -->
+<div class="modal fade" id="likeModal" tabindex="-1">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header bg-success text-white">
+                <h5 class="modal-title">👍 What do you like about this item?</h5>
+                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+            </div>
+            <div class="modal-body">
+                <p class="text-muted">Help us improve!  Select a reason: </p>
+                <div class="d-grid gap-2">
+                    <button class="btn btn-outline-success like-reason-btn" data-reason="price">💰 Love the PRICE</button>
+                    <button class="btn btn-outline-success like-reason-btn" data-reason="material">🧶 Love the MATERIAL</button>
+                    <button class="btn btn-outline-success like-reason-btn" data-reason="style">✨ Love the STYLE</button>
+                    <button class="btn btn-outline-success like-reason-btn" data-reason="trending">🔥 Love that it's TRENDING</button>
+                    <button class="btn btn-outline-success like-reason-btn" data-reason="color">🎨 Love the COLOR</button>
+                    <button class="btn btn-outline-success like-reason-btn" data-reason="brand">🏷️ Love the BRAND</button>
+                    <button class="btn btn-success like-reason-btn" data-reason="everything">❤️ Love EVERYTHING! </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+}

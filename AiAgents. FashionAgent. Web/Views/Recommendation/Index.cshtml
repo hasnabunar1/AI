@@ -1,0 +1,648 @@
+﻿@{
+    ViewData["Title"] = "Fashion Recommendations";
+}
+
+<!-- Learning Stats Bar -->
+<div class="alert alert-info d-flex justify-content-around align-items-center mb-4">
+    <div class="text-center">
+        <h4 class="mb-0">📦 @ViewBag.TotalItems</h4>
+        <small>Total Items</small>
+    </div>
+    <div class="text-center">
+        <h4 class="mb-0 text-success">👍 <span id="likes-count">@ViewBag.TotalLikes</span></h4>
+        <small>Likes</small>
+    </div>
+    <div class="text-center">
+        <h4 class="mb-0 text-danger">👎 <span id="dislikes-count">@ViewBag.TotalDislikes</span></h4>
+        <small>Dislikes</small>
+    </div>
+    <div class="text-center">
+        <h4 class="mb-0 text-primary">🧠 <span id="feedback-count">@ViewBag.TotalFeedback</span> / 50</h4>
+        <small>Next Learning</small>
+    </div>
+</div>
+
+<!-- Learning Panel -->
+<div id="learning-panel">
+    @if (ViewBag.HasLearned == true)
+    {
+        var prefs = ViewBag.LearnedPreferences as AiAgents.FashionAgent.Infrastructure.Services.LearnedPreferences;
+        <div class="card mb-4 border-success">
+            <div class="card-header bg-success text-white">
+                <h5 class="mb-0">🧠 What Agent Has Learned</h5>
+            </div>
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-md-6">
+                        <h6 class="text-success">✅ Users LOVE:</h6>
+                        <ul class="list-unstyled">
+                            @if (prefs?.LikedReasons != null && prefs.LikedReasons.Any())
+                            {
+                                @foreach (var reason in prefs.LikedReasons.OrderByDescending(x => x.Value))
+                                {
+                                    <li>
+                                        @switch (reason.Key)
+                                        {
+                                            case "price":
+                                                <span>💰 Good prices (@reason.Value votes)</span>
+                                                break;
+                                            case "material":
+
+                                                <span>🧶 Quality materials (@reason.Value votes)</span>
+                                                break;
+                                            case "style":
+
+                                                <span>✨ Great styles (@reason.Value votes)</span>
+                                                break;
+                                            case "color":
+
+                                                <span>🎨 Nice colors (@reason.Value votes)</span>
+                                                break;
+                                            case "brand":
+
+                                                <span>🏷️ Popular brands (@reason.Value votes)</span>
+                                                break;
+                                            case "trending":
+
+                                                <span>🔥 Trending items (@reason.Value votes)</span>
+                                                break;
+                                            case "everything":
+
+                                                <span>❤️ Everything (@reason.Value votes)</span>
+                                                break;
+                                        }
+                                    </li>
+                                }
+                            }
+                            @if (prefs?.PreferredColors != null && prefs.PreferredColors.Any())
+                            {
+                                <li>🎨 Favorite colors: @string.Join(", ", prefs.PreferredColors)</li>
+                            }
+                            @if (prefs?.PreferredMaterials != null && prefs.PreferredMaterials.Any())
+                            {
+                                <li>🧶 Favorite materials: @string.Join(", ", prefs.PreferredMaterials)</li>
+                            }
+                            @if (prefs?.PreferredTrendStatuses != null && prefs.PreferredTrendStatuses.Any())
+                            {
+                                <li>🔥 Favorite trends: @string.Join(", ", prefs.PreferredTrendStatuses)</li>
+                            }
+                            @if (prefs?.PreferredMaxPrice > 0)
+                            {
+                                <li>💰 Preferred price: under $@(Math.Round(prefs.PreferredMaxPrice))</li>
+                            }
+                        </ul>
+                    </div>
+                    <div class="col-md-6">
+                        <h6 class="text-danger">❌ Users DISLIKE:</h6>
+                        <ul class="list-unstyled">
+                            @if (prefs?.DislikedReasons != null && prefs.DislikedReasons.Any())
+                            {
+                                @foreach (var reason in prefs.DislikedReasons.OrderByDescending(x => x.Value))
+                                {
+                                    <li>
+                                        @switch (reason.Key)
+                                        {
+                                            case "price":
+                                                <span>💰 Too expensive (@reason.Value votes)</span>
+                                                break;
+                                            case "material":
+
+                                                <span>🧶 Bad materials (@reason.Value votes)</span>
+                                                break;
+                                            case "style":
+
+                                                <span>✨ Unappealing styles (@reason.Value votes)</span>
+                                                break;
+                                            case "color":
+
+                                                <span>🎨 Unappealing colors (@reason.Value votes)</span>
+                                                break;
+                                            case "brand":
+
+                                                <span>🏷️ Unpopular brands (@reason.Value votes)</span>
+                                                break;
+                                            case "trending":
+
+                                                <span>🔥 Trend status (@reason.Value votes)</span>
+                                                break;
+                                            case "other":
+
+                                                <span>❓ Other reasons (@reason.Value votes)</span>
+                                                break;
+                                        }
+                                    </li>
+                                }
+                            }
+                            @if (prefs?.AvoidColors != null && prefs.AvoidColors.Any())
+                            {
+                                <li>🎨 Avoid colors: @string.Join(", ", prefs.AvoidColors)</li>
+                            }
+                            @if (prefs?.AvoidMaterials != null && prefs.AvoidMaterials.Any())
+                            {
+                                <li>🧶 Avoid materials: @string.Join(", ", prefs.AvoidMaterials)</li>
+                            }
+                        </ul>
+                    </div>
+                </div>
+                <hr />
+                <p class="mb-0 text-center">
+                    <strong>🎯 Current Priority:</strong>
+                    @switch (prefs?.TopPriority)
+                    {
+                        case "price":
+                            <span class="badge bg-success">Showing affordable items first</span>
+                            break;
+                        case "material":
+
+                            <span class="badge bg-info">Prioritizing quality materials</span>
+                            break;
+                        case "style":
+
+                            <span class="badge bg-primary">Focusing on popular styles</span>
+                            break;
+                        case "color":
+
+                            <span class="badge bg-secondary">Matching favorite colors</span>
+                            break;
+                        case "brand":
+
+                            <span class="badge bg-warning text-dark">Featuring top brands</span>
+                            break;
+                        case "trending":
+
+                            <span class="badge bg-danger">Showing trending items first</span>
+                            break;
+                        default:
+
+                            <span class="badge bg-secondary">Learning from your feedback... </span>
+                            break;
+                    }
+                </p>
+            </div>
+        </div>
+    }
+    else
+    {
+        <div class="alert alert-secondary text-center mb-4">
+            <h5>🧠 Agent is Learning...</h5>
+            <p class="mb-0">Give at least 5 feedbacks (Like/Dislike) to see what the agent has learned!</p>
+            <div class="progress mt-2" style="height: 20px;">
+                <div class="progress-bar bg-info" role="progressbar" style="width: @((ViewBag.TotalFeedback ?? 0) * 20)%">
+                    @ViewBag.TotalFeedback / 5
+                </div>
+            </div>
+        </div>
+    }
+</div>
+
+<div class="container mt-4">
+    <h1 class="text-center mb-4">👗 Find Your Perfect Outfit</h1>
+    <p class="text-center text-muted">Enter your preferences and find the perfect clothing item! </p>
+
+    <div class="card shadow-sm mb-4">
+        <div class="card-header bg-primary text-white">
+            <h5 class="mb-0">🔍 Filter Options</h5>
+        </div>
+        <div class="card-body">
+            <form id="recommendationForm">
+                <div class="row">
+
+                    <!-- GENDER -->
+                    <div class="col-md-4 mb-3">
+                        <label class="form-label"><strong>👤 Gender</strong></label>
+                        <select name="gender" class="form-select">
+                            <option value="">-- Select Gender --</option>
+                            <option value="Men">Men</option>
+                            <option value="Women">Women</option>
+                            <option value="Unisex">Unisex</option>
+                        </select>
+                    </div>
+
+                    <!-- CATEGORY -->
+                    <div class="col-md-4 mb-3">
+                        <label class="form-label"><strong>👕 Category</strong></label>
+                        <select name="category" class="form-select">
+                            <option value="">-- Select Category --</option>
+                            <option value="Jacket">Jacket</option>
+                            <option value="Sweater">Sweater</option>
+                            <option value="Coat">Coat</option>
+                            <option value="Boots">Boots</option>
+                            <option value="Scarf">Scarf</option>
+                            <option value="Thermal">Thermal</option>
+                            <option value="Gloves">Gloves</option>
+                            <option value="Beanie">Beanie</option>
+                            <option value="Hoodie">Hoodie</option>
+                            <option value="Cardigan">Cardigan</option>
+                        </select>
+                    </div>
+
+                    <!-- COLOR -->
+                    <div class="col-md-4 mb-3">
+                        <label class="form-label"><strong>🎨 Color</strong></label>
+                        <select name="color" class="form-select">
+                            <option value="">-- Select Color --</option>
+                            <option value="Black">Black</option>
+                            <option value="White">White</option>
+                            <option value="Blue">Blue</option>
+                            <option value="Red">Red</option>
+                            <option value="Green">Green</option>
+                            <option value="Brown">Brown</option>
+                            <option value="Gray">Gray</option>
+                            <option value="Navy">Navy</option>
+                            <option value="Beige">Beige</option>
+                            <option value="Cream">Cream</option>
+                            <option value="Maroon">Maroon</option>
+                            <option value="Purple">Purple</option>
+                            <option value="Pink">Pink</option>
+                            <option value="Yellow">Yellow</option>
+                            <option value="Orange">Orange</option>
+                            <option value="Burgundy">Burgundy</option>
+                        </select>
+                    </div>
+
+                    <!-- MATERIAL -->
+                    <div class="col-md-4 mb-3">
+                        <label class="form-label"><strong>🧶 Material</strong></label>
+                        <select name="material" class="form-select">
+                            <option value="">-- Select Material --</option>
+                            <option value="Cotton">Cotton</option>
+                            <option value="Wool">Wool</option>
+                            <option value="Leather">Leather</option>
+                            <option value="Polyester">Polyester</option>
+                            <option value="Cashmere">Cashmere</option>
+                            <option value="Fleece">Fleece</option>
+                            <option value="Down">Down</option>
+                        </select>
+                    </div>
+
+                    <!-- STYLE -->
+                    <div class="col-md-4 mb-3">
+                        <label class="form-label"><strong>✨ Style</strong></label>
+                        <select name="style" class="form-select">
+                            <option value="">-- Select Style --</option>
+                            <option value="Casual">Casual</option>
+                            <option value="Formal">Formal</option>
+                            <option value="Luxury">Luxury</option>
+                            <option value="Sporty">Sporty</option>
+                            <option value="Streetwear">Streetwear</option>
+                        </select>
+                    </div>
+
+                    <!-- BRAND -->
+                    <div class="col-md-4 mb-3">
+                        <label class="form-label"><strong>🏷️ Brand</strong></label>
+                        <select name="brand" class="form-select">
+                            <option value="">-- Any Brand --</option>
+                            <option value="Nike">Nike</option>
+                            <option value="Zara">Zara</option>
+                            <option value="H&M">H&M</option>
+                            <option value="Gucci">Gucci</option>
+                            <option value="Adidas">Adidas</option>
+                            <option value="Mango">Mango</option>
+                            <option value="Prada">Prada</option>
+                            <option value="Uniqlo">Uniqlo</option>
+                            <option value="North Face">North Face</option>
+                            <option value="Levi's">Levi's</option>
+                        </select>
+                    </div>
+
+                    <div class="col-md-6 mb-3 d-flex align-items-center">
+                        <!-- TREND STATUS -->
+                        <div class="me-3 flex-grow-1">
+                            <label class="form-label"><strong>📈 Trend Status</strong></label>
+                            <select name="trendStatus" class="form-select">
+                                <option value="">-- Select Trend Status --</option>
+                                <option value="Trending">Trending</option>
+                                <option value="Emerging">Emerging</option>
+                                <option value="Classic">Classic</option>
+                                <option value="Outdated">Outdated</option>
+                            </select>
+                        </div>
+
+                        <!-- MIN PRICE -->
+                        <div class="me-3">
+                            <label class="form-label"><strong>💰 Min Price ($)</strong></label>
+                            <input type="number" name="minPrice" class="form-control" placeholder="0" min="0" style="width: 100px;">
+                        </div>
+
+                        <!-- MAX PRICE -->
+                        <div>
+                            <label class="form-label"><strong>💰 Max Price ($)</strong></label>
+                            <input type="number" name="maxPrice" class="form-control" placeholder="500" min="0" style="width: 100px;">
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="text-center mt-3">
+                    <button type="submit" class="btn btn-success btn-lg px-5">
+                        🔎 Find Recommendations
+                    </button>
+                    <button type="reset" class="btn btn-secondary btn-lg px-4 ms-2">
+                        🔄 Reset
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div id="results">
+        <!-- Results will appear here -->
+    </div>
+</div>
+
+
+@section Scripts {
+    <script>
+        var currentLikeItemId = null;
+        var currentDislikeItemId = null;
+        var likeModal = null;
+        var dislikeModal = null;
+
+        document.getElementById('recommendationForm').addEventListener('submit', async function(e) {
+            e.preventDefault();
+
+            var formData = new FormData(this);
+            var resultsDiv = document.getElementById('results');
+
+            resultsDiv.innerHTML = '<div class="text-center py-5"><div class="spinner-border text-primary" role="status" style="width: 3rem; height: 3rem;"></div><p class="mt-3">Finding the perfect outfit for you...</p></div>';
+
+            try {
+                var response = await fetch('/Recommendation/GetRecommendations', {
+                    method: 'POST',
+                    body:  formData
+                });
+
+                var html = await response.text();
+                resultsDiv.innerHTML = html;
+
+                initializeFeedbackButtons();
+
+            } catch (error) {
+                console.error('Fetch error:', error);
+                resultsDiv.innerHTML = '<div class="alert alert-danger">Error fetching recommendations. </div>';
+            }
+        });
+
+        function initializeFeedbackButtons() {
+            console.log('Initializing feedback buttons...');
+
+            var likeModalElement = document.getElementById('likeModal');
+            var dislikeModalElement = document.getElementById('dislikeModal');
+
+            if (likeModalElement) {
+                likeModal = new bootstrap.Modal(likeModalElement);
+            }
+
+            if (dislikeModalElement) {
+                dislikeModal = new bootstrap.Modal(dislikeModalElement);
+            }
+
+            // Like button - opens modal
+            document.querySelectorAll('.like-btn').forEach(function(btn) {
+                btn.addEventListener('click', function() {
+                    console.log('Like clicked!');
+                    var cell = this.closest('.feedback-cell');
+                    currentLikeItemId = cell.dataset.itemId;
+                    if (likeModal) {
+                        likeModal.show();
+                    }
+                });
+            });
+
+            // Dislike button - opens modal
+            document.querySelectorAll('.dislike-btn').forEach(function(btn) {
+                btn.addEventListener('click', function() {
+                    console.log('Dislike clicked!');
+                    var cell = this.closest('.feedback-cell');
+                    currentDislikeItemId = cell.dataset.itemId;
+                    if (dislikeModal) {
+                        dislikeModal.show();
+                    }
+                });
+            });
+
+            // Like reason buttons
+            document.querySelectorAll('.like-reason-btn').forEach(function(btn) {
+                btn.addEventListener('click', async function() {
+                    var reason = this.dataset.reason;
+                    var cell = document.querySelector('.feedback-cell[data-item-id="' + currentLikeItemId + '"]');
+                    if (likeModal) {
+                        likeModal.hide();
+                    }
+                    await submitFeedback(currentLikeItemId, 'like', null, reason, cell);
+                });
+            });
+
+            // Dislike reason buttons
+            document.querySelectorAll('.reason-btn').forEach(function(btn) {
+                btn.addEventListener('click', async function() {
+                    var reason = this.dataset.reason;
+                    var cell = document.querySelector('.feedback-cell[data-item-id="' + currentDislikeItemId + '"]');
+                    if (dislikeModal) {
+                        dislikeModal.hide();
+                    }
+                    await submitFeedback(currentDislikeItemId, 'dislike', reason, null, cell);
+                });
+            });
+
+            console.log('Feedback buttons initialized! ');
+        }
+
+               async function submitFeedback(itemId, feedback, dislikeReason, likeReason, cell) {
+            try {
+                console.log('Submitting feedback:', itemId, feedback, dislikeReason, likeReason);
+
+                var response = await fetch('/Recommendation/SubmitFeedback', {
+                    method:  'POST',
+                    headers: { 'Content-Type':  'application/json' },
+                    body: JSON.stringify({
+                        itemId:  parseInt(itemId),
+                        feedback: feedback,
+                        dislikeReason: dislikeReason,
+                        likeReason: likeReason
+                    })
+                });
+
+                console.log('Response status:', response.status);
+
+                if (response.ok) {
+                    var result = await response.json();
+                    console.log('Result:', result);
+
+                    if (feedback === 'like') {
+                        cell.innerHTML = '<span class="badge bg-success">👍 Liked!</span>';
+                    } else {
+                        cell.innerHTML = '<span class="badge bg-danger">👎 Noted! </span>';
+                    }
+
+                    updateStatsOnPage(feedback);
+
+                    if (result.shouldRetrain) {
+                        showRetrainNotification(result.totalFeedback);
+                    }
+
+                    // ✅ NOVO: Refresh learning panel after every feedback
+                    var currentFeedback = parseInt(document.getElementById('feedback-count').textContent) || 0;
+                    if (currentFeedback >= 5) {
+                        refreshLearningPanel();
+                    }
+
+                } else {
+                    var errorText = await response.text();
+                    console.error('Error response:', errorText);
+                    alert('Error: ' + errorText);
+                }
+            } catch (error) {
+                console.error('Error:', error);
+                alert('Error:  ' + error.message);
+            }
+        }
+
+        function updateStatsOnPage(feedback) {
+            if (feedback === 'like') {
+                var likesElement = document.getElementById('likes-count');
+                if (likesElement) {
+                    var current = parseInt(likesElement.textContent) || 0;
+                    likesElement.textContent = current + 1;
+                }
+            } else {
+                var dislikesElement = document.getElementById('dislikes-count');
+                if (dislikesElement) {
+                    var current = parseInt(dislikesElement.textContent) || 0;
+                    dislikesElement.textContent = current + 1;
+                }
+            }
+
+            var feedbackElement = document.getElementById('feedback-count');
+            if (feedbackElement) {
+                var currentTotal = parseInt(feedbackElement.textContent) || 0;
+                feedbackElement.textContent = currentTotal + 1;
+            }
+        }
+
+        function showRetrainNotification(total) {
+            var alertDiv = document.createElement('div');
+            alertDiv.className = 'alert alert-info alert-dismissible fade show position-fixed top-0 start-50 translate-middle-x mt-3';
+            alertDiv.style.zIndex = '9999';
+            alertDiv.innerHTML = '<strong>🧠 Learning Update!</strong> Agent has received ' + total + ' feedbacks and is improving recommendations!  <button type="button" class="btn-close" data-bs-dismiss="alert"></button>';
+            document.body.appendChild(alertDiv);
+
+            setTimeout(function() { alertDiv.remove(); }, 5000);
+        }
+                function refreshLearningPanel() {
+            fetch('/Recommendation/GetLearningStats')
+                .then(function(response) { return response.json(); })
+                .then(function(data) {
+                    var panel = document.getElementById('learning-panel');
+                    if (panel && data.totalFeedback >= 5) {
+                        var html = '<div class="card mb-4 border-success">';
+                        html += '<div class="card-header bg-success text-white"><h5 class="mb-0">🧠 What Agent Has Learned</h5></div>';
+                        html += '<div class="card-body"><div class="row">';
+
+                        // Users LOVE
+                        html += '<div class="col-md-6"><h6 class="text-success">✅ Users LOVE: </h6><ul class="list-unstyled">';
+                        if (data.likedReasons) {
+                            var likeKeys = Object.keys(data.likedReasons);
+                            for (var i = 0; i < likeKeys.length; i++) {
+                                var reason = likeKeys[i];
+                                var icon = getReasonIcon(reason);
+                                var label = getReasonLabel(reason, 'like');
+                                html += '<li>' + icon + ' ' + label + ' (' + data.likedReasons[reason] + ' votes)</li>';
+                            }
+                        }
+                        if (data.preferredColors && data.preferredColors.length > 0) {
+                            html += '<li>🎨 Favorite colors: ' + data.preferredColors.join(', ') + '</li>';
+                        }
+                        if (data.preferredMaxPrice > 0) {
+                            html += '<li>💰 Preferred price: under $' + Math.round(data.preferredMaxPrice) + '</li>';
+                        }
+                        if (data.preferredMaterials && data.preferredMaterials.length > 0) {
+                            html += '<li>🧶 Favorite materials: ' + data.preferredMaterials.join(', ') + '</li>';
+                        }
+                        if (data.preferredTrendStatuses && data.preferredTrendStatuses.length > 0) {
+                            html += '<li>🔥 Favorite trends: ' + data.preferredTrendStatuses.join(', ') + '</li>';
+                        }
+                        html += '</ul></div>';
+
+                        // Users DISLIKE
+                        html += '<div class="col-md-6"><h6 class="text-danger">❌ Users DISLIKE:</h6><ul class="list-unstyled">';
+                        if (data.dislikedReasons) {
+                            var dislikeKeys = Object.keys(data.dislikedReasons);
+                            for (var i = 0; i < dislikeKeys.length; i++) {
+                                var reason = dislikeKeys[i];
+                                var icon = getReasonIcon(reason);
+                                var label = getReasonLabel(reason, 'dislike');
+                                html += '<li>' + icon + ' ' + label + ' (' + data.dislikedReasons[reason] + ' votes)</li>';
+                            }
+                        }
+                        if (data.avoidColors && data.avoidColors.length > 0) {
+                            html += '<li>🎨 Avoid colors:  ' + data.avoidColors.join(', ') + '</li>';
+                        }
+                        if (data.avoidMaterials && data.avoidMaterials.length > 0) {
+                            html += '<li>🧶 Avoid materials: ' + data.avoidMaterials.join(', ') + '</li>';
+                        }
+                        html += '</ul></div></div>';
+
+                        // Priority
+                        html += '<hr/><p class="mb-0 text-center"><strong>🎯 Current Priority:</strong> ';
+                        html += '<span class="badge bg-success">' + getPriorityLabel(data.topPriority) + '</span></p>';
+                        html += '</div></div>';
+
+                        panel.innerHTML = html;
+                    }
+                })
+                .catch(function(error) {
+                    console.error('Error refreshing learning panel:', error);
+                });
+        }
+
+        function getReasonIcon(reason) {
+            var icons = {
+                'price': '💰',
+                'material': '🧶',
+                'style': '✨',
+                'color': '🎨',
+                'brand': '🏷️',
+                'trending': '🔥',
+                'everything': '❤️',
+                'other': '❓'
+            };
+            return icons[reason] || '📌';
+        }
+
+        function getReasonLabel(reason, type) {
+            var likeLabels = {
+                'price': 'Good prices',
+                'material': 'Quality materials',
+                'style': 'Great styles',
+                'color': 'Nice colors',
+                'brand': 'Popular brands',
+                'trending': 'Trending items',
+                'everything': 'Everything'
+            };
+            var dislikeLabels = {
+                'price': 'Too expensive',
+                'material': 'Bad materials',
+                'style': 'Unappealing styles',
+                'color':  'Unappealing colors',
+                'brand':  'Unpopular brands',
+                'trending': 'Trend status',
+                'other': 'Other reasons'
+            };
+            return type === 'like' ? (likeLabels[reason] || reason) : (dislikeLabels[reason] || reason);
+        }
+
+        function getPriorityLabel(priority) {
+            var labels = {
+                'price': 'Showing affordable items first',
+                'material': 'Prioritizing quality materials',
+                'style':  'Focusing on popular styles',
+                'color': 'Matching favorite colors',
+                'brand': 'Featuring top brands',
+                'trending': 'Showing trending items first'
+            };
+            return labels[priority] || 'Learning from your feedback... ';
+        }
+    </script>
+}
