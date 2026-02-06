@@ -21,6 +21,7 @@ builder.Services.AddScoped<ScoringService>();
 builder.Services.AddScoped<TrainingService>();
 builder.Services.AddScoped<DatabaseSeeder>();
 builder.Services.AddScoped<AiAgents.FashionAgent.Infrastructure.Services.LearningService>();
+builder.Services.AddScoped<RecommendationService>();
 
 // ===== AGENT RUNNERS =====
 builder.Services.AddScoped<FashionScoringAgentRunner>();

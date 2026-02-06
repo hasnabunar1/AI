@@ -58,3 +58,19 @@ C:\Users\DT User\Desktop\Fashion AI Agent\AiAgents.FashionAgent\obj\Debug\net8.0
 C:\Users\DT User\Desktop\Fashion AI Agent\AiAgents.FashionAgent\obj\Debug\net8.0\refint\AiAgents.FashionAgent.dll
 C:\Users\DT User\Desktop\Fashion AI Agent\AiAgents.FashionAgent\obj\Debug\net8.0\AiAgents.FashionAgent.pdb
 C:\Users\DT User\Desktop\Fashion AI Agent\AiAgents.FashionAgent\obj\Debug\net8.0\ref\AiAgents.FashionAgent.dll
+C:\Users\Dell\OneDrive\Desktop\AI\AiAgents.FashionAgent\bin\Debug\net8.0\AiAgents.FashionAgent.deps.json
+C:\Users\Dell\OneDrive\Desktop\AI\AiAgents.FashionAgent\bin\Debug\net8.0\AiAgents.FashionAgent.dll
+C:\Users\Dell\OneDrive\Desktop\AI\AiAgents.FashionAgent\bin\Debug\net8.0\AiAgents.FashionAgent.pdb
+C:\Users\Dell\OneDrive\Desktop\AI\AiAgents.FashionAgent\bin\Debug\net8.0\AiAgents.Core.dll
+C:\Users\Dell\OneDrive\Desktop\AI\AiAgents.FashionAgent\bin\Debug\net8.0\AiAgents.Core.pdb
+C:\Users\Dell\OneDrive\Desktop\AI\AiAgents.FashionAgent\obj\Debug\net8.0\AiAgents.FashionAgent.csproj.AssemblyReference.cache
+C:\Users\Dell\OneDrive\Desktop\AI\AiAgents.FashionAgent\obj\Debug\net8.0\AiAgents.FashionAgent.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Dell\OneDrive\Desktop\AI\AiAgents.FashionAgent\obj\Debug\net8.0\AiAgents.FashionAgent.AssemblyInfoInputs.cache
+C:\Users\Dell\OneDrive\Desktop\AI\AiAgents.FashionAgent\obj\Debug\net8.0\AiAgents.FashionAgent.AssemblyInfo.cs
+C:\Users\Dell\OneDrive\Desktop\AI\AiAgents.FashionAgent\obj\Debug\net8.0\AiAgents.FashionAgent.csproj.CoreCompileInputs.cache
+C:\Users\Dell\OneDrive\Desktop\AI\AiAgents.FashionAgent\obj\Debug\net8.0\AiAgents.FashionAgent.sourcelink.json
+C:\Users\Dell\OneDrive\Desktop\AI\AiAgents.FashionAgent\obj\Debug\net8.0\AiAgents.8B3D83E9.Up2Date
+C:\Users\Dell\OneDrive\Desktop\AI\AiAgents.FashionAgent\obj\Debug\net8.0\AiAgents.FashionAgent.dll
+C:\Users\Dell\OneDrive\Desktop\AI\AiAgents.FashionAgent\obj\Debug\net8.0\refint\AiAgents.FashionAgent.dll
+C:\Users\Dell\OneDrive\Desktop\AI\AiAgents.FashionAgent\obj\Debug\net8.0\AiAgents.FashionAgent.pdb
+C:\Users\Dell\OneDrive\Desktop\AI\AiAgents.FashionAgent\obj\Debug\net8.0\ref\AiAgents.FashionAgent.dll

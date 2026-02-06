@@ -1,23 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\DT User\\Desktop\\Fashion AI Agent\\AiAgents. FashionAgent. Web\\AiAgents. FashionAgent. Web.csproj": {}
+    "C:\\Users\\Dell\\OneDrive\\Desktop\\AI\\AiAgents. FashionAgent. Web\\AiAgents. FashionAgent. Web.csproj": {}
   },
   "projects": {
-    "C:\\Users\\DT User\\Desktop\\Fashion AI Agent\\AiAgents. FashionAgent. Web\\AiAgents. FashionAgent. Web.csproj": {
+    "C:\\Users\\Dell\\OneDrive\\Desktop\\AI\\AiAgents. FashionAgent. Web\\AiAgents. FashionAgent. Web.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\DT User\\Desktop\\Fashion AI Agent\\AiAgents. FashionAgent. Web\\AiAgents. FashionAgent. Web.csproj",
+        "projectUniqueName": "C:\\Users\\Dell\\OneDrive\\Desktop\\AI\\AiAgents. FashionAgent. Web\\AiAgents. FashionAgent. Web.csproj",
         "projectName": "AiAgents. FashionAgent. Web",
-        "projectPath": "C:\\Users\\DT User\\Desktop\\Fashion AI Agent\\AiAgents. FashionAgent. Web\\AiAgents. FashionAgent. Web.csproj",
-        "packagesPath": "C:\\Users\\DT User\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\DT User\\Desktop\\Fashion AI Agent\\AiAgents. FashionAgent. Web\\obj\\",
+        "projectPath": "C:\\Users\\Dell\\OneDrive\\Desktop\\AI\\AiAgents. FashionAgent. Web\\AiAgents. FashionAgent. Web.csproj",
+        "packagesPath": "C:\\Users\\Dell\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Dell\\OneDrive\\Desktop\\AI\\AiAgents. FashionAgent. Web\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\DT User\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Dell\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -33,8 +33,8 @@
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
-              "C:\\Users\\DT User\\Desktop\\Fashion AI Agent\\AiAgents.FashionAgent\\AiAgents.FashionAgent.csproj": {
-                "projectPath": "C:\\Users\\DT User\\Desktop\\Fashion AI Agent\\AiAgents.FashionAgent\\AiAgents.FashionAgent.csproj"
+              "C:\\Users\\Dell\\OneDrive\\Desktop\\AI\\AiAgents.FashionAgent\\AiAgents.FashionAgent.csproj": {
+                "projectPath": "C:\\Users\\Dell\\OneDrive\\Desktop\\AI\\AiAgents.FashionAgent\\AiAgents.FashionAgent.csproj"
               }
             }
           }
@@ -85,24 +85,24 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.305/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.310/PortableRuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\DT User\\Desktop\\Fashion AI Agent\\AiAgents.Core\\AiAgents.Core.csproj": {
+    "C:\\Users\\Dell\\OneDrive\\Desktop\\AI\\AiAgents.Core\\AiAgents.Core.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\DT User\\Desktop\\Fashion AI Agent\\AiAgents.Core\\AiAgents.Core.csproj",
+        "projectUniqueName": "C:\\Users\\Dell\\OneDrive\\Desktop\\AI\\AiAgents.Core\\AiAgents.Core.csproj",
         "projectName": "AiAgents.Core",
-        "projectPath": "C:\\Users\\DT User\\Desktop\\Fashion AI Agent\\AiAgents.Core\\AiAgents.Core.csproj",
-        "packagesPath": "C:\\Users\\DT User\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\DT User\\Desktop\\Fashion AI Agent\\AiAgents.Core\\obj\\",
+        "projectPath": "C:\\Users\\Dell\\OneDrive\\Desktop\\AI\\AiAgents.Core\\AiAgents.Core.csproj",
+        "packagesPath": "C:\\Users\\Dell\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Dell\\OneDrive\\Desktop\\AI\\AiAgents.Core\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\DT User\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Dell\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -151,24 +151,24 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.305/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.310/PortableRuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\DT User\\Desktop\\Fashion AI Agent\\AiAgents.FashionAgent\\AiAgents.FashionAgent.csproj": {
+    "C:\\Users\\Dell\\OneDrive\\Desktop\\AI\\AiAgents.FashionAgent\\AiAgents.FashionAgent.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\DT User\\Desktop\\Fashion AI Agent\\AiAgents.FashionAgent\\AiAgents.FashionAgent.csproj",
+        "projectUniqueName": "C:\\Users\\Dell\\OneDrive\\Desktop\\AI\\AiAgents.FashionAgent\\AiAgents.FashionAgent.csproj",
         "projectName": "AiAgents.FashionAgent",
-        "projectPath": "C:\\Users\\DT User\\Desktop\\Fashion AI Agent\\AiAgents.FashionAgent\\AiAgents.FashionAgent.csproj",
-        "packagesPath": "C:\\Users\\DT User\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\DT User\\Desktop\\Fashion AI Agent\\AiAgents.FashionAgent\\obj\\",
+        "projectPath": "C:\\Users\\Dell\\OneDrive\\Desktop\\AI\\AiAgents.FashionAgent\\AiAgents.FashionAgent.csproj",
+        "packagesPath": "C:\\Users\\Dell\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Dell\\OneDrive\\Desktop\\AI\\AiAgents.FashionAgent\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\DT User\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Dell\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -184,8 +184,8 @@
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
-              "C:\\Users\\DT User\\Desktop\\Fashion AI Agent\\AiAgents.Core\\AiAgents.Core.csproj": {
-                "projectPath": "C:\\Users\\DT User\\Desktop\\Fashion AI Agent\\AiAgents.Core\\AiAgents.Core.csproj"
+              "C:\\Users\\Dell\\OneDrive\\Desktop\\AI\\AiAgents.Core\\AiAgents.Core.csproj": {
+                "projectPath": "C:\\Users\\Dell\\OneDrive\\Desktop\\AI\\AiAgents.Core\\AiAgents.Core.csproj"
               }
             }
           }
@@ -239,7 +239,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.305/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.310/PortableRuntimeIdentifierGraph.json"
         }
       }
     }

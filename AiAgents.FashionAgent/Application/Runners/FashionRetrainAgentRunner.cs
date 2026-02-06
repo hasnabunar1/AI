@@ -3,57 +3,65 @@ using AiAgents.FashionAgent.Application.Services;
 using AiAgents.FashionAgent.Infrastructure;
 using Microsoft.EntityFrameworkCore;
 
-namespace AiAgents.FashionAgent.Application.Runners
+namespace AiAgents.FashionAgent.Application.Runners;
+
+public class FashionRetrainAgentRunner
 {
-    public class FashionRetrainAgentRunner
+    private readonly FashionAgentDbContext _context;
+    private readonly TrainingService _trainingService;
+    private readonly RecommendationService _recommendationService;
+
+    public FashionRetrainAgentRunner(
+        FashionAgentDbContext context,
+        TrainingService trainingService,
+        RecommendationService recommendationService)
     {
-        private readonly FashionAgentDbContext _context;
-        private readonly TrainingService _trainingService;
+        _context = context;
+        _trainingService = trainingService;
+        _recommendationService = recommendationService;
+    }
 
-        public FashionRetrainAgentRunner(
-            FashionAgentDbContext context,
-            TrainingService trainingService)
+    public async Task<RetrainTickResult?> StepAsync(CancellationToken ct)
+    {
+        // ===== SENSE =====
+        var settings = await _context.SystemSettings.FirstOrDefaultAsync(ct);
+
+        if (settings == null)
+            return null;
+
+        // ===== THINK =====
+        bool shouldRetrain = ShouldRetrain(settings);
+
+        if (!shouldRetrain)
+            return null;
+
+        // ===== ACT + LEARN =====
+        var newModel = await _trainingService.TrainModelAsync(activate: true, ct);
+
+        // 🔥 KRITIČNO: Resetuj brojač nakon uspješnog retraina
+        settings.NewGoldSinceLastTrain = 0;
+        settings.LastRetrainAt = DateTime.UtcNow;
+        await _context.SaveChangesAsync(ct);
+
+        return new RetrainTickResult
         {
-            _context = context;
-            _trainingService = trainingService;
-        }
+            RetrainPerformed = true,
+            NewModelVersionId = newModel.Id,
+            TrainingSamplesUsed = newModel.TrainingSamplesCount,
+            NewModelAccuracy = newModel.Accuracy,
+            TrainedAt = newModel.TrainedAt
+        };
+    }
 
-        public async Task<RetrainTickResult?> StepAsync(CancellationToken ct)
-        {
-            // ===== SENSE =====
-            var settings = await _context.SystemSettings.FirstOrDefaultAsync(ct);
+    private bool ShouldRetrain(Domain.SystemSettings settings)
+    {
+        if (!settings.RetrainEnabled)
+            return false;
 
-            if (settings == null)
-                return null;
+        // ✅ Koristi NewGoldSinceLastTrain signal iz SubmitFeedback
+        if (settings.NewGoldSinceLastTrain < settings.GoldThresholdForRetrain)
+            return false;
 
-            // ===== THINK =====
-            bool shouldRetrain = ShouldRetrain(settings);
-
-            if (!shouldRetrain)
-                return null; // Nije vrijeme za retrain
-
-            // ===== ACT + LEARN =====
-            var newModel = await _trainingService.TrainModelAsync(activate: true, ct);
-
-            return new RetrainTickResult
-            {
-                RetrainPerformed = true,
-                NewModelVersionId = newModel.Id,
-                TrainingSamplesUsed = newModel.TrainingSamplesCount,
-                NewModelAccuracy = newModel.Accuracy,
-                TrainedAt = newModel.TrainedAt
-            };
-        }
-
-        private bool ShouldRetrain(Domain.SystemSettings settings)
-        {
-            if (!settings.RetrainEnabled)
-                return false;
-
-            if (settings.NewGoldSinceLastTrain < settings.GoldThresholdForRetrain)
-                return false;
-
-            return true;
-        }
+        return true;
     }
 }

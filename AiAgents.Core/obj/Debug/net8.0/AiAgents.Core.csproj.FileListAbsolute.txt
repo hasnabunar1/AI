@@ -42,3 +42,15 @@ C:\Users\DT User\Desktop\Fashion AI Agent\AiAgents.Core\obj\Debug\net8.0\AiAgent
 C:\Users\DT User\Desktop\Fashion AI Agent\AiAgents.Core\obj\Debug\net8.0\refint\AiAgents.Core.dll
 C:\Users\DT User\Desktop\Fashion AI Agent\AiAgents.Core\obj\Debug\net8.0\AiAgents.Core.pdb
 C:\Users\DT User\Desktop\Fashion AI Agent\AiAgents.Core\obj\Debug\net8.0\ref\AiAgents.Core.dll
+C:\Users\Dell\OneDrive\Desktop\AI\AiAgents.Core\bin\Debug\net8.0\AiAgents.Core.deps.json
+C:\Users\Dell\OneDrive\Desktop\AI\AiAgents.Core\bin\Debug\net8.0\AiAgents.Core.dll
+C:\Users\Dell\OneDrive\Desktop\AI\AiAgents.Core\bin\Debug\net8.0\AiAgents.Core.pdb
+C:\Users\Dell\OneDrive\Desktop\AI\AiAgents.Core\obj\Debug\net8.0\AiAgents.Core.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Dell\OneDrive\Desktop\AI\AiAgents.Core\obj\Debug\net8.0\AiAgents.Core.AssemblyInfoInputs.cache
+C:\Users\Dell\OneDrive\Desktop\AI\AiAgents.Core\obj\Debug\net8.0\AiAgents.Core.AssemblyInfo.cs
+C:\Users\Dell\OneDrive\Desktop\AI\AiAgents.Core\obj\Debug\net8.0\AiAgents.Core.csproj.CoreCompileInputs.cache
+C:\Users\Dell\OneDrive\Desktop\AI\AiAgents.Core\obj\Debug\net8.0\AiAgents.Core.sourcelink.json
+C:\Users\Dell\OneDrive\Desktop\AI\AiAgents.Core\obj\Debug\net8.0\AiAgents.Core.dll
+C:\Users\Dell\OneDrive\Desktop\AI\AiAgents.Core\obj\Debug\net8.0\refint\AiAgents.Core.dll
+C:\Users\Dell\OneDrive\Desktop\AI\AiAgents.Core\obj\Debug\net8.0\AiAgents.Core.pdb
+C:\Users\Dell\OneDrive\Desktop\AI\AiAgents.Core\obj\Debug\net8.0\ref\AiAgents.Core.dll
